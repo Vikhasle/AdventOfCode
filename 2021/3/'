@@ -1,0 +1,42 @@
+
+
+def gamma(pos, b_strs):
+    counter = 0
+    for bstr in b_strs:
+        if bstr[pos] == '1':
+            counter +=1
+        else: counter -=1
+    return '1' if counter >= 0 else '0'
+
+
+def btoi(b_str):
+    res = 0
+    for char in b_str:
+        res <<= 1
+        if char == '1':
+            res +=1
+    return res
+
+
+strings = open("test", "r").readlines()
+
+def part_two():
+    valid = list(strings)
+    valid2 = list(strings)
+    c = 0
+    while len(valid) > 1:
+        g = gamma(c, valid)
+        print(g)
+        valid = list(filter(lambda x : x[c] == g, valid))
+        c+=1
+    c = 0
+    print(valid, valid2)
+    while len(valid2) > 1:
+        g = gamma(c, valid)
+        print(g)
+        valid2 = list(filter(lambda x : x[c] != g, valid2))
+        c+=1
+    print(valid2)
+    print(btoi(valid[0])*btoi(valid2[0]))
+
+part_two()
