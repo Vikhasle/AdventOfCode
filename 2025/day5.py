@@ -21,12 +21,12 @@ def part_one(ranges, ings):
 def part_two(ranges, ings):
     total = 0
     counted = []
-    ranges.sort(key=lambda x: x[0])
+    ranges.sort(key=lambda x: x[0])  
 
     for i, (min_r, max_r) in enumerate(ranges):
         concat = False
         for j, (min_c, max_c) in enumerate(counted):
-            if min_r <= max_c or min_c >= max_r:
+            if (min_r <= max_c or min_c >= max_r):
                 counted[j] = (min(min_c, min_r), max(max_c, max_r))
                 concat = True
                 break
