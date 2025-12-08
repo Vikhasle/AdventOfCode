@@ -12,9 +12,8 @@ def get_input(file_name):
 def part_one(input):
     beams = set()
     beams.add(input[0].index('S'))
-    i = 1
     splits = 0
-    for i in range(len(input)):
+    for i in range(1, len(input)):
         new_beams = set()
         for p in beams:
             if input[i][p] == '^':
