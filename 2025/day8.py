@@ -17,7 +17,7 @@ def part_one(input):
             diff = [pos[k] - pos2[k] for k in range(len(pos))]
             dist = np.linalg.norm(diff)
             dist_map[i, j + i + 1] = dist
-            dist_map[j + i + 1,i] = dist
+            dist_map[j + i + 1, i] = dist
     for i in range(n):
         dist_map[i, i] = np.inf
     circuits = []
