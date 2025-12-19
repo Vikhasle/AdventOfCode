@@ -13,17 +13,17 @@ def get_input(file_name):
 def part_one(input):
     input = [x.split() for x in input]
     exps = [[int(x)] for x in input[0]]
-    totals = [0] * len(exps)
+    total = 0
     for parts in input[1:-1]:
         for i in range(len(exps)):
             exps[i].append(int(parts[i]))
     for i, op in enumerate(input[-1]):
         if op == '+':
-            totals[i] = sum(exps[i])
+            total += sum(exps[i])
         else:
-            totals[i] = reduce(lambda x, y: x*y, exps[i], 1)
+            total += reduce(lambda x, y: x*y, exps[i], 1)
 
-    return sum(totals)
+    return total
 
 
 def part_two(input):

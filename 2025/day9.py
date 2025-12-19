@@ -1,8 +1,6 @@
 import numpy as np
 import sys
-from itertools import product
-from functools import cache
-from collections import defaultdict
+from itertools import combinations
 
 def get_input(file_name):
     with open(file_name, "r") as file:
@@ -16,8 +14,7 @@ def area_f(t1, t2):
 
 
 def part_one(input):
-    n = len(input)
-    return max([max([area_f(input[i], input[j]) for j in range(i+1, n)]) for i in range(n - 1)])
+    return max(map(lambda x: area_f(*x), combinations(input, 2)))
 
 
 def subset(p0, p1, p2, p3):

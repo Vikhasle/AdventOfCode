@@ -5,6 +5,12 @@ from itertools import combinations
 import sys
 
 
+def get_input(file_name):
+    with open(file_name, "r") as file:
+        lines = [x.strip() for x in file.readlines()]
+        return lines
+
+
 class Indicator:
     def __init__(self, lights):
         self.goal = set()
